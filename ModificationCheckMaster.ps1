@@ -1,18 +1,33 @@
-$Version = 0.4
+$Version = 0.5
 $Update = 0
 $ConfirmUpdate = $null
-$Things = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion
-$VersionLine = ($Things).split([Environment]::NewLine) | Select-String -Pattern "ModificationCheck" -SimpleMatch
+$UtilVersionList = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion
+$VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "ModificationCheck" -SimpleMatch
 $VersionLine = $VersionLine.ToString()
 $VersionMaster = $VersionLine.SubString(($VersionLine.Length) -3)
+$NewVersion = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/ModificationCheckMaster.ps1
 
-If (Test-Path -Path ./ModificationCheckMaster.ps1 -PathType Leaf) {
-    rm ./ModificationCheckMaster.ps1
-    Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/ModificationCheckMaster.ps1 >> ModificationCheck.ps1
+$FluffyUtils = "
+   ______     ______       __  ____  _ __  
+  / __/ /_ __/ _/ _/_ __  / / / / /_(_) /__
+ / _// / // / _/ _/ // / / /_/ / __/ / (_-<
+/_/ /_/\_,_/_//_/ \_, /  \____/\__/_/_/___/
+                 /___/                     
+"
+
+If (Test-Path -Path .\ModificationCheckMaster.ps1 -PathType Leaf) {
+    rm .\ModificationCheckMaster.ps1
+    $NewVersion >> .\ModificationCheck.ps1
+    If (Test-Path -Path .\ModificationCheckMaster.ps1 -PathType Leaf) {
+        rm .\ModificationCheck.ps1
+        $NewVersion >> .\ModificationCheck.ps1
+    }
+ 
+
 }
 
-(Invoke-RestMethod "https://artii.herokuapp.com/make?text=Fluffy+Utils&font=smslant") | Write-Host 
-Write-Host "`n  You Are Running ModificationCheck v$Version"
+Write-Host $FluffyUtils 
+Write-Host "  You Are Running ModificationCheck v$Version"
 Write-Host "    Hosted On Github.com/MrFlufficans"
 if ($VersionMaster -gt $Version) {
     Write-Host "`n  There is a New Version Available v$VersionMaster`n        Would you Like to Update?"
@@ -29,8 +44,8 @@ Start-Sleep 1
 
 If ($Update) {
     Write-Host "`nFetching Update"
-    If (Test-Path -Path ./ModificationCheck.ps1 -PathType Leaf) {rm ./ModificationCheck.ps1}
-    Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/ModificationCheckMaster.ps1 >> ModificationCheck.ps1
+    If (Test-Path -Path .\ModificationCheck.ps1 -PathType Leaf) {rm .\ModificationCheck.ps1}
+    $NewVersion >> ModificationCheck.ps1
     Write-Host "Script Updated"
 
     Write-Host "Relaunching in 3"
@@ -39,7 +54,7 @@ If ($Update) {
     Start-Sleep 1
     Write-Host "Relaunching in 1"
     Start-Sleep 1
-    Start-Process powershell ./ModificationCheck.ps1
+    Start-Process powershell .\ModificationCheck.ps1
     Exit
 } else {}
 
@@ -71,7 +86,7 @@ $DaysBack = [int]$DaysBack
         $ToShow += $Object
     }
 }
-If (Test-Path -Path ./Results.txt -PathType Leaf) {Clear-Content Results.txt}
+If (Test-Path -Path .\Results.txt -PathType Leaf) {Clear-Content Results.txt}
 $ToShow | Format-Table -Autosize 
 Write-Host "Press Any Key to Output to Text"
 $ToShow | Format-Table -Autosize >> Results.txt
