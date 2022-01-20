@@ -6,6 +6,11 @@ $VersionLine = ($Things).split([Environment]::NewLine) | Select-String -Pattern 
 $VersionLine = $VersionLine.ToString()
 $VersionMaster = $VersionLine.SubString(($VersionLine.Length) -3)
 
+If (Test-Path -Path ./ModificationCheckMaster.ps1 -PathType Leaf) {
+    rm ./ModificationCheckMaster.ps1
+    Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/ModificationCheckMaster.ps1 >> ModificationCheck.ps1
+}
+
 (Invoke-RestMethod "https://artii.herokuapp.com/make?text=Fluffy+Utils&font=smslant") | Write-Host 
 Write-Host "`n  You Are Running ModificationCheck v$Version"
 Write-Host "    Hosted On Github.com/MrFlufficans"
@@ -21,11 +26,6 @@ if ($VersionMaster -gt $Version) {
 } else {$Update = 0}
 
 Start-Sleep 1
-
-If (Test-Path -Path ./ModificationCheckMaster.ps1 -PathType Leaf) {
-    rm ./ModificationCheckMaster.ps1
-    Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/ModificationCheckMaster.ps1 >> ModificationCheck.ps1
-}
 
 If ($Update) {
     Write-Host "`nFetching Update"
