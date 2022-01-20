@@ -22,6 +22,11 @@ if ($VersionMaster -gt $Version) {
 
 Start-Sleep 1
 
+If (Test-Path -Path ./ModificationCheckMaster.ps1 -PathType Leaf) {
+    rm ./ModificationCheckMaster.ps1
+    Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/ModificationCheckMaster.ps1 >> ModificationCheck.ps1
+}
+
 If ($Update) {
     Write-Host "`nFetching Update"
     If (Test-Path -Path ./ModificationCheck.ps1 -PathType Leaf) {rm ./ModificationCheck.ps1}
