@@ -1,11 +1,17 @@
-$Version = 0.4
-$Update = 0
-$ConfirmUpdate = $null
+$Version = 0.6
 $UtilVersionList = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion
 $VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "ModInstaller" -SimpleMatch
 $VersionLine = $VersionLine.ToString()
 $VersionMaster = $VersionLine.SubString(($VersionLine.Length) -3)
 $NewVersion = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/ModInstallerMaster.ps1
+
+$FluffyUtils = "
+   ______     ______       __  ____  _ __  
+  / __/ /_ __/ _/ _/_ __  / / / / /_(_) /__
+ / _// / // / _/ _/ // / / /_/ / __/ / (_-<
+/_/ /_/\_,_/_//_/ \_, /  \____/\__/_/_/___/
+                 /___/                     
+"
 
 If (Test-Path -Path .\ModInstallerMaster.ps1 -PathType Leaf) {
     rm .\ModInstallerMaster.ps1
@@ -16,13 +22,6 @@ If (Test-Path -Path .\ModInstallerMaster.ps1 -PathType Leaf) {
     }
 }
 
-$FluffyUtils = "
-   ______     ______       __  ____  _ __  
-  / __/ /_ __/ _/ _/_ __  / / / / /_(_) /__
- / _// / // / _/ _/ // / / /_/ / __/ / (_-<
-/_/ /_/\_,_/_//_/ \_, /  \____/\__/_/_/___/
-                 /___/                     
-"
 Write-Host $FluffyUtils 
 Write-Host "   You Are Running Mod Installer v$Version"
 Write-Host "   Hosted On Github.com/MrFlufficans"
@@ -55,15 +54,23 @@ If ($Update) {
     Exit
 } else {}
 
-if (!(Test-Path -Path .\README.txt)) {
+if (!(Test-Path -Path .\README.txt -PathType Leaf)) {
     Write-Host "`n`n    I couldn't find A ReadMe File"
     Write-Host "       Please Create one and"
     Write-Host " Put The Mods Name on the First Line"
     Start-Sleep 5
     exit
 }
+
 $ReadMe = Get-Content .\README.txt
 $ModName = ($ReadMe).split([Environment]::NewLine) | Select -First 1
+
+if (!(Test-Path -Path .\$ModName)) {
+    Write-Host "`nI can't seem to find the $ModName folder"
+    Write-Host "        Is $ModName Correct?"
+    Start-Sleep 5
+    exit
+}
 
 if (Test-Path -Path $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName) {rm $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName -Recurse}
 Copy-Item -path .\$ModName -Destination $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods -Recurse

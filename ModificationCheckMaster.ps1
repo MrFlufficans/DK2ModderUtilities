@@ -1,6 +1,4 @@
-$Version = 0.5
-$Update = 0
-$ConfirmUpdate = $null
+$Version = 0.7
 $UtilVersionList = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion
 $VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "ModificationCheck" -SimpleMatch
 $VersionLine = $VersionLine.ToString()
@@ -22,8 +20,6 @@ If (Test-Path -Path .\ModificationCheckMaster.ps1 -PathType Leaf) {
         rm .\ModificationCheck.ps1
         $NewVersion >> .\ModificationCheck.ps1
     }
- 
-
 }
 
 Write-Host $FluffyUtils 
