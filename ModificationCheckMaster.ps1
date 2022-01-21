@@ -1,4 +1,5 @@
-$Version = 0.7
+if((Get-Content -Path ".\OrigAuth" -ErrorAction SilentlyContinue | Select-Object -Index 0) -match "Fluffy") {$Rename = 0} else {$Rename = 1}
+$Version = 0.8
 $UtilVersionList = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion
 $VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "ModificationCheck" -SimpleMatch
 $VersionLine = $VersionLine.ToString()
@@ -12,13 +13,14 @@ $FluffyUtils = "
 /_/ /_/\_,_/_//_/ \_, /  \____/\__/_/_/___/
                  /___/                     
 "
-
-If (Test-Path -Path .\ModificationCheckMaster.ps1 -PathType Leaf) {
-    rm .\ModificationCheckMaster.ps1
-    $NewVersion >> .\ModificationCheck.ps1
+if($Rename) {
     If (Test-Path -Path .\ModificationCheckMaster.ps1 -PathType Leaf) {
-        rm .\ModificationCheck.ps1
+        rm .\ModificationCheckMaster.ps1
         $NewVersion >> .\ModificationCheck.ps1
+        If (Test-Path -Path .\ModificationCheckMaster.ps1 -PathType Leaf) {
+            rm .\ModificationCheck.ps1
+            $NewVersion >> .\ModificationCheck.ps1
+        }
     }
 }
 

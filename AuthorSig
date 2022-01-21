@@ -1,0 +1,20 @@
+MrFlufficans
+DK2ModderUtilities
+master
+
+This File should contain on the Top 3 Lines
+Author Name
+Mod Name
+Mod Branch on Github
+
+Using this Repo as an Example
+https://github.com/MrFlufficans/DK2ModderUtilities
+                      Author       Mod Name
+Mod Branch can be found on the Repository quite literally the Branch, Yours most likely is named Main
+
+The Alternative is to Put the Download Link on Line One
+Which will look like this
+
+https://github.com/MrFlufficans/DK2ModderUtilities/archive/refs/heads/master.zip
+                     Author          Mod Name                         Branch
+
