@@ -24,4 +24,6 @@ Hopefully I can make it super easy for Mod Makers to use so people don't need to
 # Mod Downloader/Updater
 At the Moment this only Pulls from Github, I would like to extend this to other File Sharing Sites
 
+THIS TOOL IS STILL IN TESTING REFRAIN FROM USE
+
 TODO
