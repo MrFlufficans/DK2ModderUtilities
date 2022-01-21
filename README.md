@@ -19,3 +19,9 @@ Hopefully I can make it super easy for Mod Makers to use so people don't need to
 2.  Make sure the Top Line of your Readme.txt has the Mods Name.
 3.  All people will need to Do is run the ModInstaller with Powershell and it will Do everything Else.
 4.  The tool can also Update automatically but I am Not sure what I could change.
+
+
+# Mod Downloader/Updater
+At the Moment this only Pulls from Github, I would like to extend this to other File Sharing Sites
+
+TODO
