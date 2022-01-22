@@ -24,6 +24,9 @@ Hopefully I can make it super easy for Mod Makers to use so people don't need to
 # Mod Downloader/Updater
 At the Moment this only Pulls from Github, I would like to extend this to other File Sharing Sites
 
-THIS TOOL IS STILL IN TESTING REFRAIN FROM USE
-
-TODO
+1.  There is an Additional File called AuthorSig it contains instructions on how to use it
+2.  If the AuthorSig Doesn't exist it will prompt you to Enter the Details manually
+3.  These Details will be Author Name, Mod Name and lastly the Branch this is normally "Main"
+4.  After putting in the Details it will download the Repo and Extract it.
+5.  You are now Free to place the Mod Folder into your Mods Folder, or Use my Mod Installer
+6.  Simply make a readme.txt and put the Mods Name on the First Line and save, Now run the Installer
