@@ -62,7 +62,7 @@ if (!(Test-Path -Path .\README.txt -PathType Leaf)) {
 }
 
 $ReadMe = Get-Content .\README.txt
-$ModName = ($ReadMe).split([Environment]::NewLine) | Select -First 1
+$ModName = ($ReadMe).split([Environment]::NewLine) | Select-Object -First 1
 
 if (!(Test-Path -Path .\$ModName)) {
     Write-Host "`nI can't seem to find the $ModName folder"
@@ -71,7 +71,7 @@ if (!(Test-Path -Path .\$ModName)) {
     exit
 }
 
-if (Test-Path -Path $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName) {rm $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName -Recurse}
+if (Test-Path -Path $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName) {Remove-Item $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName -Recurse}
 Copy-Item -path .\$ModName -Destination $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods -Recurse
 
 Write-Host "`n $ReadMe has been Installed"
