@@ -1,10 +1,11 @@
-if((Get-Content -Path ".\OrigAuth" -ErrorAction SilentlyContinue | Select-Object -Index 0) -match "Fluffy") {$Rename = 0} else {$Rename = 1}
-$Version = 0.7
-$UtilVersionList = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion
-$VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "ModInstaller" -SimpleMatch
+$Version = 0.8
+$FPSName = split-Path $PSCommandPath -Leaf
+$FPSName = $FPSName.Substring(0,(($FPSName.Length) - 4))
+$UtilVersionList = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion"
+$VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "$FPSName" -SimpleMatch
 $VersionLine = $VersionLine.ToString()
 $VersionMaster = $VersionLine.SubString(($VersionLine.Length) -3)
-$NewVersion = Invoke-RestMethod https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/ModInstallerMaster.ps1
+$NewVersion = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/$FPSName.ps1"
 
 $FluffyUtils = "
    ______     ______       __  ____  _ __  
@@ -13,20 +14,10 @@ $FluffyUtils = "
 /_/ /_/\_,_/_//_/ \_, /  \____/\__/_/_/___/
                  /___/                     
 "
-if($Rename) {
-    If (Test-Path -Path .\ModInstallerMaster.ps1 -PathType Leaf) {
-        rm .\ModInstallerMaster.ps1
-        $NewVersion >> .\ModInstaller.ps1
-        If (Test-Path -Path .\ModInstallerMaster.ps1 -PathType Leaf) {
-            rm .\ModInstaller.ps1
-            $NewVersion >> .\ModInstaller.ps1
-        }
-    }
-}
 
 Write-Host $FluffyUtils 
-Write-Host "   You Are Running Mod Installer v$Version"
-Write-Host "   Hosted On Github.com/MrFlufficans"
+Write-Host "  You Are Running $FPSName v$Version"
+Write-Host "    Hosted On Github.com/MrFlufficans"
 if ($VersionMaster -gt $Version) {
     Write-Host "`n  There is a New Version Available v$VersionMaster`n        Would you Like to Update?"
     $ConfirmUpdate = Read-Host "`t`t"
@@ -42,19 +33,25 @@ Start-Sleep 1
 
 If ($Update) {
     Write-Host "`nFetching Update"
-    If (Test-Path -Path .\ModInstaller.ps1 -PathType Leaf) {Clear-Content -Path .\ModInstaller.ps1}
-    $NewVersion >> ModInstaller.ps1
+    Start-Sleep 1
+    If (Test-Path -Path ".\$FPSName.ps1" -PathType Leaf) {Clear-Content ".\$FPSName.ps1"}
+    $NewVersion >> "$FPSName.ps1"
     Write-Host "Script Updated"
-
+    Start-Sleep 1
     Write-Host "Relaunching in 3"
     Start-Sleep 1
     Write-Host "Relaunching in 2"
     Start-Sleep 1
     Write-Host "Relaunching in 1"
     Start-Sleep 1
-    Start-Process powershell .\ModInstaller.ps1
+    Start-Process powershell ".\$FPSName.ps1"
     Exit
 } else {}
+
+
+#Everything Above is just the Auto Update
+#Actual Script Below Here
+
 
 if (!(Test-Path -Path .\README.txt -PathType Leaf)) {
     Write-Host "`n`n    I couldn't find A ReadMe File"
