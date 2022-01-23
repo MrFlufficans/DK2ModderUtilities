@@ -1,6 +1,15 @@
 # DK2ModderUtilities
 Contains Utilities Modders can use for Door Kickers 2 Modding
 
+These can be run easily by Right clicking and Running with Powershell.
+However if you are running with a Execution Policy higher than Unrestricted you will need to do something else.
+
+For a lack of a better way to explain it you basically have to install my Signature into your Trusted Certificates.
+I will include documentation on how to do it and also how to remove it incase you wish to revert it.
+
+If you don't know if this applies to you, If the Powershell Window Opens then closes Instantly It probably applies to you.
+TODO Link to Documentation
+
 # Modification Check
 This Tool is used to check for Modified Files after an Update.
 

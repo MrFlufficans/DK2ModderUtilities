@@ -1,11 +1,10 @@
-$Version = 0.9
+$Version = 1.0
 $FPSName = split-Path $PSCommandPath -Leaf
 $FPSName = $FPSName.Substring(0,(($FPSName.Length) - 4))
 $UtilVersionList = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion"
 $VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "$FPSName" -SimpleMatch
 $VersionLine = $VersionLine.ToString()
 $VersionMaster = $VersionLine.SubString(($VersionLine.Length) -3)
-$NewVersion = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/$FPSName.ps1"
 
 $FluffyUtils = "
    ______     ______       __  ____  _ __  
@@ -17,7 +16,7 @@ $FluffyUtils = "
 
 Write-Host $FluffyUtils 
 Write-Host "  You Are Running $FPSName v$Version"
-Write-Host "    Hosted On Github.com/MrFlufficans"
+Write-Host "   Hosted On Github.com/MrFlufficans"
 if ($VersionMaster -gt $Version) {
     Write-Host "`n  There is a New Version Available v$VersionMaster`n        Would you Like to Update?"
     $ConfirmUpdate = Read-Host "`t`t"
@@ -33,6 +32,7 @@ Start-Sleep 1
 
 If ($Update) {
     Write-Host "`nFetching Update"
+    $NewVersion = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/$FPSName.ps1"
     Start-Sleep 1
     If (Test-Path -Path ".\$FPSName.ps1" -PathType Leaf) {Clear-Content ".\$FPSName.ps1"}
     $NewVersion >> "$FPSName.ps1"
@@ -57,7 +57,7 @@ $ToShow = @()
 Write-Host "`n How many Days to you want to Check back?"
 $DaysBack = Read-Host "                 "
 $DaysBack = [int]$DaysBack
-(Get-ChildItem -Attributes !D -exclude Results.txt,!resource_folder.txt,!help_entities.txt,LICENSE_OFL.txt -include *.xml,*.txt -Recurse) | foreach {    
+(Get-ChildItem -Attributes !D -exclude Results.txt,!resource_folder.txt,!help_entities.txt,LICENSE_OFL.txt -include *.xml,*.txt -Recurse) | ForEach-Object {    
     $ParentFolder = ($_).Directory.Name
     $Name = ($_).Name
     
@@ -85,3 +85,36 @@ $ToShow | Format-Table -Autosize
 Write-Host "Press Any Key to Output to Text"
 cmd /c pause | out-null
 $ToShow | Format-Table -Autosize >> Results.txt
+
+
+# SIG # Begin signature block
+# MIIFUgYJKoZIhvcNAQcCoIIFQzCCBT8CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
+# gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUknvZAEg+9mDYht+XLNoC1Cqi
+# ec2gggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
+# AQsFADARMQ8wDQYDVQQDDAZGbHVmZnkwHhcNMjIwMTIzMDkxNjQyWhcNMjMwMTIz
+# MDkzNjQyWjARMQ8wDQYDVQQDDAZGbHVmZnkwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+# DwAwggEKAoIBAQDYrJ4j7LJFBH+2PvcYWG160G89fRdi/tviqPMyiPUprowIohnF
+# M/c+/u0xTa1nO0TuYpKVc9cDZpz8kv3y5khYq+3tXGw0Ic4Oa2IWb/8TS8KzA6KE
+# H1bU9oV8pbZDby7wEH0WO1wkupt5Iur+uV5axojCrSmVqe4UNWdOhCwUvs0lwUd6
+# nzrZiKLKWbY0C73P7tezjvaRb3cJ9ILYCjfb00W7r5qk6A22lF3tSFHJRGJ1bBpe
+# mwLkJt4hgQPbs0sCXxfSPZCP8FFKHb+v2BV/u6NcekmZyI4gBIrW0wtRGBCFOEo1
+# Zg6NCzlwqPCexfoobP+OG6aFoRgswVzOvbsdAgMBAAGjRjBEMA4GA1UdDwEB/wQE
+# AwIHgDATBgNVHSUEDDAKBggrBgEFBQcDAzAdBgNVHQ4EFgQUBsXvFb7RTLzhQ/d5
+# cvrwxg8QeFowDQYJKoZIhvcNAQELBQADggEBANaNT+up1MUv0PjNc2/c0jFd0phK
+# YW0VzU4xHvZcFUCrwLyvB9F4q+r1XoDgXk/mJKQuUiTjOWATIEU6ceySEsKwAzu7
+# WvTyCkc+FUEBJjJXOEbA7q0oF6Jf1Z4LIAnQGIPSa5sFACRKINbcjcSCWcIvDHNf
+# FUlDNuCuVdijpBKJITZEicXI00pWevPMtqJyxw+JMJ4Sy+LnrEqrZzah6d5swY1J
+# 4grlLMijXaqhMGN5gqOTKjxvtXKy8TopBASyTUMWxqfrWBTKljusAMtX6946yxTp
+# nPsylbvixVldBCqn4xlW/59yFJQYOQB8NoR+PWqip3OcKI0w3MUei+f3tmcxggHG
+# MIIBwgIBATAlMBExDzANBgNVBAMMBkZsdWZmeQIQGYoxa96RMZtFJxUw11CCBjAJ
+# BgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0B
+# CQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAj
+# BgkqhkiG9w0BCQQxFgQU429/dPRkyuldVVq5qXUspG6OJHUwDQYJKoZIhvcNAQEB
+# BQAEggEASynXlWzXm8MPjoL3Yr8dfufF6QPSiYbwjhOrCNjTSU3dvR9aCdPv+UgM
+# Z6QEFzbFHhX8zRjtcGpKZa8x2lPDUpKlV+uVo66TeIeLyfM7/5KApZ0j8lQjSdlL
+# yYpNDOxNw7wFI73fQVskYx1tAubWvWuxSlsP0haxvSC5RPy/qo5jOfEPAibs1DNw
+# XOvY2lxcxfELByvBt5RnJFSwgM/s7LOev4BVTLOF1Om+mPPP2MDOJK7kmM6tr+lM
+# qebh8wdUYs88CgiX8XoeHJjyumld7jG2byEnbqwalWtl1c4cuiFdYIk3UKcXWNSz
+# 5Sg3uD7oprcLzC9hTPUg/21/I0mSgA==
+# SIG # End signature block
