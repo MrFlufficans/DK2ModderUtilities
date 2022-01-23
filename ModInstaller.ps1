@@ -1,4 +1,4 @@
-$Version = 0.8
+$Version = 0.9
 $FPSName = split-Path $PSCommandPath -Leaf
 $FPSName = $FPSName.Substring(0,(($FPSName.Length) - 4))
 $UtilVersionList = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion"
@@ -53,7 +53,7 @@ If ($Update) {
 #Actual Script Below Here
 
 
-if (!(Test-Path -Path .\README.txt -PathType Leaf)) {
+if (!(Test-Path -Path ".\README.txt" -PathType Leaf)) {
     Write-Host "`n`n    I couldn't find A ReadMe File"
     Write-Host "       Please Create one and"
     Write-Host " Put The Mods Name on the First Line"
@@ -61,18 +61,18 @@ if (!(Test-Path -Path .\README.txt -PathType Leaf)) {
     exit
 }
 
-$ReadMe = Get-Content .\README.txt
+$ReadMe = Get-Content ".\README.txt"
 $ModName = ($ReadMe).split([Environment]::NewLine) | Select-Object -First 1
 
-if (!(Test-Path -Path .\$ModName)) {
+if (!(Test-Path -Path ".\$ModName")) {
     Write-Host "`nI can't seem to find the $ModName folder"
     Write-Host "        Is $ModName Correct?"
     Start-Sleep 5
     exit
 }
 
-if (Test-Path -Path $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName) {Remove-Item $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName -Recurse}
-Copy-Item -path .\$ModName -Destination $env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods -Recurse
+if (Test-Path -Path "$env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName") {Remove-Item "$env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\$ModName" -Recurse}
+Copy-Item -path ".\$ModName" -Destination "$env:LOCALAPPDATA\KillHouseGames\DoorKickers2\mods\" -Recurse
 
-Write-Host "`n $ReadMe has been Installed"
+Write-Host "`n $ModName has been Installed"
 Start-Sleep 3
