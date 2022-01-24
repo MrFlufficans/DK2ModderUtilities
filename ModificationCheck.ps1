@@ -1,4 +1,4 @@
-$Version = "1.0"
+$Version = "1.1"
 $FPSName = split-Path $PSCommandPath -Leaf
 $FPSName = $FPSName.Substring(0,(($FPSName.Length) - 4))
 $UtilVersionList = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion"
@@ -87,11 +87,12 @@ cmd /c pause | out-null
 $ToShow | Format-Table -Autosize >> Results.txt
 
 
+
 # SIG # Begin signature block
 # MIIFUgYJKoZIhvcNAQcCoIIFQzCCBT8CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU+orJkcOK4ennor2ZPQuginFg
-# clmgggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUANooVWFmS13Sj3ZX6Tbko/UA
+# j7KgggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
 # AQsFADARMQ8wDQYDVQQDDAZGbHVmZnkwHhcNMjIwMTIzMDkxNjQyWhcNMjMwMTIz
 # MDkzNjQyWjARMQ8wDQYDVQQDDAZGbHVmZnkwggEiMA0GCSqGSIb3DQEBAQUAA4IB
 # DwAwggEKAoIBAQDYrJ4j7LJFBH+2PvcYWG160G89fRdi/tviqPMyiPUprowIohnF
@@ -110,11 +111,11 @@ $ToShow | Format-Table -Autosize >> Results.txt
 # MIIBwgIBATAlMBExDzANBgNVBAMMBkZsdWZmeQIQGYoxa96RMZtFJxUw11CCBjAJ
 # BgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0B
 # CQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAj
-# BgkqhkiG9w0BCQQxFgQUJdJt+OARL0SbwGaBzePLevf3niUwDQYJKoZIhvcNAQEB
-# BQAEggEAnkKxA1eEAv0dO6fYpBH4qB88928SIWqGYjd7B2pu1hu7jlxr7jLcn80q
-# S+VDgyrzzgLY1Mir2+go7to5tesnzv1NeSRLvCbNP7DfAGMk15hkcN0qjTO2jbND
-# QW2mPWH6M6G2pVZOnv5xgtLHx72eyL37cfFHf4nPkfoWiB6yokDGYZKKNysGlKOr
-# HfQOWlzZM/D0dwEI0Pvgg5g5zni2JUnSKn1qiRCCvNVdpwD0Z8Mg0yrfTuDoJFZS
-# 1z7n5kwAmsb6q+1z7+3RxtbuM8Cp/v3zZh94mMwfwwdmFmWRNZ26c8OJ/C1PBEp7
-# 02Bg9w/l7ofjMsKhgg2V5GuA7K+aDQ==
+# BgkqhkiG9w0BCQQxFgQUj8I1n++iskk/moCTY7WRBt9BnxswDQYJKoZIhvcNAQEB
+# BQAEggEAXYp35WrfsT/oEprQcTcSXAXCPUGxHtDiqTuevsNnYt9jvSwUoiCFfrw2
+# k05qL3fzEv79sub1JVhIQ9N1lEI+nZifyXhXoLSI9SQ18JRsFsj12G4Bp642FCj0
+# Phk+hxvKSoEReGWtGPhTcOrJekHzMqDsmWrAYOn4dsoYj5PvfRNduamdbT/RWuc8
+# +IDQzvoCSfaw8koOrGgePiSvEvEKxFXALAk9KGCWezGyJ6T+qBTapz3wVmzA+9fQ
+# qfQh89k0yeGktt0vlbPmTWKQJs5XlNK+p8eXnePnSsle2P2Cz3LnxrP9fDhGJxUA
+# KHwZLJtoTGpAwovoD8kbTonB7r5MrQ==
 # SIG # End signature block

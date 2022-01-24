@@ -1,4 +1,4 @@
-$Version = "1.0"
+$Version = "1.1"
 $FPSName = split-Path $PSCommandPath -Leaf
 $FPSName = $FPSName.Substring(0,(($FPSName.Length) - 4))
 $UtilVersionList = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion"
@@ -78,11 +78,12 @@ Write-Host "`n $ModName has been Installed"
 Start-Sleep 3
 
 
+
 # SIG # Begin signature block
 # MIIFUgYJKoZIhvcNAQcCoIIFQzCCBT8CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUn5/cLevWpMUX/LRULi/kUTUI
-# Q6egggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU/AMGBTmWBMSup/x5c0nlKFL2
+# kSSgggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
 # AQsFADARMQ8wDQYDVQQDDAZGbHVmZnkwHhcNMjIwMTIzMDkxNjQyWhcNMjMwMTIz
 # MDkzNjQyWjARMQ8wDQYDVQQDDAZGbHVmZnkwggEiMA0GCSqGSIb3DQEBAQUAA4IB
 # DwAwggEKAoIBAQDYrJ4j7LJFBH+2PvcYWG160G89fRdi/tviqPMyiPUprowIohnF
@@ -101,11 +102,11 @@ Start-Sleep 3
 # MIIBwgIBATAlMBExDzANBgNVBAMMBkZsdWZmeQIQGYoxa96RMZtFJxUw11CCBjAJ
 # BgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0B
 # CQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAj
-# BgkqhkiG9w0BCQQxFgQUxRVJ4qTMff1iHJEqM6mQUFaPthwwDQYJKoZIhvcNAQEB
-# BQAEggEAxajWOOiNAjacF45UzqT5pdA1rath0xXscKwNc3inA5Gb/3xjq8e9+pSk
-# QaopqjCj2Heaqbkg/i6LmCoPfsPYB7/S4sMR9IUCHHx53qJ9iFB9OKprE8jpEx/7
-# etDTK/TqQVZFLVkuSyrownqhsJCdQhzmIRXd+TCmFr8nVKuYfrPc5JMGj3Wsvh+s
-# 5jJ5P1CR3c35+Xuaz85CDP/SAIb0NC1XwTWOtCKloXMvKGBhmJtjjqcdk5RLKO2B
-# V6gSu7iTgmXjw8KkxwtXfh8CFzOqfWAiJT1etg88EYn9dK6dun+X2gXnDc+N2Eba
-# mgs5oQrcCnyg9mc6hqIgcr/oNDhE1Q==
+# BgkqhkiG9w0BCQQxFgQUPtvyQbEq3sRZFFgFvxOc4zZD+XYwDQYJKoZIhvcNAQEB
+# BQAEggEAzXwB3W01eWxSWtlGggsIu+R4VqhNSwN7y54D//KRsmcJFw50o3PlnDhl
+# wn+YWbRJ7EjBfCOCs8tOqijoAp4KO3MEWNRKm0MS9mJUt6hWfV+Z+HJ7XyI5XtnR
+# kYdo0J0rs3UKDh+MEgfmJ8j4GHvApkUOJfakr/sR4Xy35lBoNHVm5ARndnC3fm36
+# R8QOnRfszX0jXdIXm+j9Gjvjq8dPiQorQgjU44SRI9HpZIBz1HERidFNq2+g9cGZ
+# JNBxjR50si0gtR4CYZ1wyEVALIgLBUUs+1llVll/l23LsetuPHXWkO1VsLZMD2Kr
+# ljPPgvr/MLrnuoDWDOdRjOZGL4nj/w==
 # SIG # End signature block
