@@ -1,7 +1,8 @@
 # DK2ModderUtilities
-Type Legend
-P = Powershell
-B = Batch
+Type Legend.<br/>
+P = Powershell.<br/>
+B = Batch.<br/>
+
 
 Contains Utilities Modders can use for Door Kickers 2 Modding
 
