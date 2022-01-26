@@ -1,6 +1,5 @@
-$Version = "1.1"
-$FPSName = split-Path $PSCommandPath -Leaf
-$FPSName = $FPSName.Substring(0,(($FPSName.Length) - 4))
+$Version = "1.2"
+$FPSName = "ModInstaller"
 $UtilVersionList = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion"
 $VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "$FPSName" -SimpleMatch
 $VersionLine = $VersionLine.ToString()
@@ -82,8 +81,8 @@ Start-Sleep 3
 # SIG # Begin signature block
 # MIIFUgYJKoZIhvcNAQcCoIIFQzCCBT8CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU/AMGBTmWBMSup/x5c0nlKFL2
-# kSSgggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU4okhvwRvo2ZBUBlNwpbud2OD
+# ntSgggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
 # AQsFADARMQ8wDQYDVQQDDAZGbHVmZnkwHhcNMjIwMTIzMDkxNjQyWhcNMjMwMTIz
 # MDkzNjQyWjARMQ8wDQYDVQQDDAZGbHVmZnkwggEiMA0GCSqGSIb3DQEBAQUAA4IB
 # DwAwggEKAoIBAQDYrJ4j7LJFBH+2PvcYWG160G89fRdi/tviqPMyiPUprowIohnF
@@ -102,11 +101,11 @@ Start-Sleep 3
 # MIIBwgIBATAlMBExDzANBgNVBAMMBkZsdWZmeQIQGYoxa96RMZtFJxUw11CCBjAJ
 # BgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0B
 # CQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAj
-# BgkqhkiG9w0BCQQxFgQUPtvyQbEq3sRZFFgFvxOc4zZD+XYwDQYJKoZIhvcNAQEB
-# BQAEggEAzXwB3W01eWxSWtlGggsIu+R4VqhNSwN7y54D//KRsmcJFw50o3PlnDhl
-# wn+YWbRJ7EjBfCOCs8tOqijoAp4KO3MEWNRKm0MS9mJUt6hWfV+Z+HJ7XyI5XtnR
-# kYdo0J0rs3UKDh+MEgfmJ8j4GHvApkUOJfakr/sR4Xy35lBoNHVm5ARndnC3fm36
-# R8QOnRfszX0jXdIXm+j9Gjvjq8dPiQorQgjU44SRI9HpZIBz1HERidFNq2+g9cGZ
-# JNBxjR50si0gtR4CYZ1wyEVALIgLBUUs+1llVll/l23LsetuPHXWkO1VsLZMD2Kr
-# ljPPgvr/MLrnuoDWDOdRjOZGL4nj/w==
+# BgkqhkiG9w0BCQQxFgQUJpe8qx+FDOfONNq9RUNfjO1wSS0wDQYJKoZIhvcNAQEB
+# BQAEggEAArHLN9Vl1OocwAZ2WRMeEYifeZCHcySXRFEf1mHlYDGky8gtSafOG6js
+# 4Q0c+OWut4kwswAXi7hPlH0qp29DUJfRPZ0PwXaPjW4TzTRHnwJBDktRMc717AhI
+# f450HflRVJVGlnp0wSgD8DpCLiVIWcpy5o2ENNtNdzZA82HWBkuwmyEBPUccP+Eh
+# TV/VKOFkeTKA26su0C+yue/MI5+4yMotOwnFVlyZmM+4QU8sLzS+Xn+34CVAXLui
+# WakQG4y8bfLsNoqrL1nzDTuc7qumMJtWIQGo8a0gG+esO9usd53DF5nZqarY3+Vc
+# bw9qarnLuE1RiUYmEjrjnO+lLb9jsQ==
 # SIG # End signature block

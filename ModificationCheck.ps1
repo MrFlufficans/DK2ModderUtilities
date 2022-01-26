@@ -1,6 +1,5 @@
-$Version = "1.1"
-$FPSName = split-Path $PSCommandPath -Leaf
-$FPSName = $FPSName.Substring(0,(($FPSName.Length) - 4))
+$Version = "1.2"
+$FPSName = "ModificationCheck"
 $UtilVersionList = Invoke-RestMethod "https://raw.githubusercontent.com/MrFlufficans/DK2ModderUtilities/master/UtilVersion"
 $VersionLine = ($UtilVersionList).split([Environment]::NewLine) | Select-String -Pattern "$FPSName" -SimpleMatch
 $VersionLine = $VersionLine.ToString()
@@ -91,8 +90,8 @@ $ToShow | Format-Table -Autosize >> Results.txt
 # SIG # Begin signature block
 # MIIFUgYJKoZIhvcNAQcCoIIFQzCCBT8CAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUANooVWFmS13Sj3ZX6Tbko/UA
-# j7KgggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU3sm9zaIcKVofB3DDkfu4SQdA
+# /bygggL2MIIC8jCCAdqgAwIBAgIQGYoxa96RMZtFJxUw11CCBjANBgkqhkiG9w0B
 # AQsFADARMQ8wDQYDVQQDDAZGbHVmZnkwHhcNMjIwMTIzMDkxNjQyWhcNMjMwMTIz
 # MDkzNjQyWjARMQ8wDQYDVQQDDAZGbHVmZnkwggEiMA0GCSqGSIb3DQEBAQUAA4IB
 # DwAwggEKAoIBAQDYrJ4j7LJFBH+2PvcYWG160G89fRdi/tviqPMyiPUprowIohnF
@@ -111,11 +110,11 @@ $ToShow | Format-Table -Autosize >> Results.txt
 # MIIBwgIBATAlMBExDzANBgNVBAMMBkZsdWZmeQIQGYoxa96RMZtFJxUw11CCBjAJ
 # BgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0B
 # CQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAj
-# BgkqhkiG9w0BCQQxFgQUj8I1n++iskk/moCTY7WRBt9BnxswDQYJKoZIhvcNAQEB
-# BQAEggEAXYp35WrfsT/oEprQcTcSXAXCPUGxHtDiqTuevsNnYt9jvSwUoiCFfrw2
-# k05qL3fzEv79sub1JVhIQ9N1lEI+nZifyXhXoLSI9SQ18JRsFsj12G4Bp642FCj0
-# Phk+hxvKSoEReGWtGPhTcOrJekHzMqDsmWrAYOn4dsoYj5PvfRNduamdbT/RWuc8
-# +IDQzvoCSfaw8koOrGgePiSvEvEKxFXALAk9KGCWezGyJ6T+qBTapz3wVmzA+9fQ
-# qfQh89k0yeGktt0vlbPmTWKQJs5XlNK+p8eXnePnSsle2P2Cz3LnxrP9fDhGJxUA
-# KHwZLJtoTGpAwovoD8kbTonB7r5MrQ==
+# BgkqhkiG9w0BCQQxFgQU7A0pdrwezaJ8+f7EqOPo3quHsjAwDQYJKoZIhvcNAQEB
+# BQAEggEAq+XAF4IxAqNf9MP3uA4kkiz8oxxqFHTcUmrJ6FkL2yIDYc4yBrZkXJoa
+# R01DLe+ulcQJvGSTMCuGHINty20WPJryAosqF7bHonGo8FroZq2WgG0RrIQcsGQM
+# OrNyGaKw3Rb6p/6Fr2vQl9PcDOs3lJWwXVJv7MLJOHDpzlbWF2j7Un/PkTIk3loY
+# LB7V2vcwWvZJeNJenDLga5z6ldxY1UwbDPCuZchInGQ2OTTY3LLZ9z16vYb8Syl6
+# lUp29DhDLKrbf6Z15ElPclpbwdCRGPpgOhaDquUB7yGNCXXIwmIL9/vLLdjMw4/i
+# rVrPI5MKQkZ5wgaQjYfw8ZJQk84cSQ==
 # SIG # End signature block

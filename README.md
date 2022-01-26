@@ -46,7 +46,8 @@ Batch Version
 3.  Once you have typed it, It ideally should install for you.
 
 # Mod Downloader/Updater -P
-At the Moment this only Pulls from Github, I would like to extend this to other File Sharing Sites
+I tried making this work for other File sharing Sites like Mega and Google Drive, No Dice.
+For now it will be limited only to Github Releases so I doubt it will get used.
 
 1.  There is an Additional File called AuthorSig it contains instructions on how to use it
 2.  If the AuthorSig Doesn't exist it will prompt you to Enter the Details manually
