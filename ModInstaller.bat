@@ -21,7 +21,7 @@ dir /B /A:-HD
 echo.
 echo Please Type the Mod Folder
 set /p ModFolder=
-xcopy "%ModFolder%" "%localappdata%\KillHouseGames\DoorKickers2\mods\%ModFolder%\" /E 
+xcopy "%ModFolder%" "%localappdata%\KillHouseGames\DoorKickers2\mods\%ModFolder%\" /E /Y
 echo Install Complete.
 timeout /t 1 /nobreak > NUL
 echo.
