@@ -28,6 +28,10 @@ This Tool is used to check for Modified Files after an Update.
 
 
 # Mod Installer -P -B
+This Tool Still works but I am declaring it deprecated.
+I suggest you use Nexus's mods as they have the Vortex Mod Manager.
+However if you want to still use this tool it Will Function Fine.
+
 This is an Installer that can be placed Alongside Mods and used to Automatically Install them
 Hopefully I can make it super easy for Mod Makers to use so people don't need to install them Manually Anymore
 
@@ -56,3 +60,11 @@ For now it will be limited only to Github Releases so I doubt it will get used.
 4.  After putting in the Details it will download the Repo and Extract it.
 5.  You are now Free to place the Mod Folder into your Mods Folder, or Use my Mod Installer
 6.  Simply make a readme.txt and put the Mods Name on the First Line and save, Now run the Installer
+
+# Mod Boot Strap -P
+This Tool More or less Generates a Blank slate mod for you to work with.
+At the moment it only generates a mod.xml but I plan to update it Soon.
+
+1.  Just run the script with Powershell and it will give you prompts.
+2.  After filling in the Prompts there should be a generated Mod Folder placed into your Mods Folder.
+3.  Profit?
